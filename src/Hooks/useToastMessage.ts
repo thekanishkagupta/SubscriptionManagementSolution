@@ -20,33 +20,33 @@ const ERROR_TOAST_MESSAGE = 'Something went wrong';
  *  });
  */
 export default () => {
-    const { showToast } = useContext(AppToastContext);
+  const { showToast } = useContext(AppToastContext);
 
-    const withToast = async (
-        action: () => any,
-        toastConfig: WithToastConfig = {}
-    ) => {
-        try {
-            const res = await action();
-            showToast(toastConfig.successToastMessage || SUCCESS_TOAST_MESSAGE, {
-                variant: 'success',
-            });
-            return res;
-        } catch (error) {
-            const msg =
-                toastConfig.showApiErrorMsg === false
-                    ? toastConfig.errorToastMessage || ERROR_TOAST_MESSAGE
-                    : get(error, 'response.data.error.message') || error.message;
-            showToast(msg, { variant: 'error' });
-            throw error;
-        }
-    };
+  const withToast = async (
+    action: () => any,
+    toastConfig: WithToastConfig = {}
+  ) => {
+    try {
+      const res = await action();
+      showToast(toastConfig.successToastMessage || SUCCESS_TOAST_MESSAGE, {
+        variant: 'success',
+      });
+      return res;
+    } catch (error) {
+      const msg =
+        toastConfig.showApiErrorMsg === false
+          ? toastConfig.errorToastMessage || ERROR_TOAST_MESSAGE
+          : get(error, 'response.data.error.message');
+      showToast(msg, { variant: 'error' });
+      throw error;
+    }
+  };
 
-    return withToast;
+  return withToast;
 };
 
 export interface WithToastConfig {
-    successToastMessage?: string;
-    errorToastMessage?: string;
-    showApiErrorMsg?: boolean;
+  successToastMessage?: string;
+  errorToastMessage?: string;
+  showApiErrorMsg?: boolean;
 }
