@@ -32,11 +32,11 @@ export const THEME_PALETTE = {
     },
     others: {},
     primary: {
-        main: '#8525E5',
+        main: '#6844B0',
         contrastText: '#FFFFFF',
     },
     secondary: {
-        main: '#FFAF00',
+        main: '#F9B80C',
         contrastText: '#FFFFFF',
     },
     success: {
