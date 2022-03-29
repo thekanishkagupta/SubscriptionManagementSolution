@@ -1,13 +1,20 @@
 import React, { FC, useContext } from 'react';
-import { Typography } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 import { AppToastContext } from '../../Contexts/AppToastContext';
+import NavigationMenu from 'Screens/Home/NavigationMenu';
+import WebApp from 'Screens/Home/WebApp';
+import SpotifyGetPlaylists from 'Screens/Home/SpotifyGetPlaylists';
+import SpotifySubscription from 'Screens/Home/SpotifySubscription';
 
 const Landing: FC = () => {
     const { showToast } = useContext(AppToastContext);
     return (
-        <div>
-            <Typography variant="h2">Mithyalabs Boilerplate.</Typography>
-        </div>
+        <Box>
+            <NavigationMenu />
+            <WebApp />
+            <SpotifySubscription />
+            <SpotifyGetPlaylists />
+        </Box>
     );
 };
 
