@@ -2,6 +2,7 @@
   "name": "subscription-management",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jigyasudhingra.github.io",
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.8.1",
@@ -18,6 +19,7 @@
     "axios": "^0.21.1",
     "clsx": "^1.1.1",
     "easy-peasy": "^3.3.0",
+    "gh-pages": "^3.2.3",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
@@ -33,7 +35,9 @@
     "g:m": "hygen model new",
     "g:form": "hygen form new",
     "g:store": "hygen store new",
-    "g:s": "hygen screen new"
+    "g:s": "hygen screen new",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
